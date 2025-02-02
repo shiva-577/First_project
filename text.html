@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Input Overlay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #textContainer {
+            position: relative;
+        }
+
+        #textInput {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            opacity: 0.5; /* Adjust opacity as needed */
+            border: none;
+            outline: none;
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <p id="presentText">This is the present text.</p>
+        <input type="text" id="textInput">
+    </div>
+    <script>
+        const presentText = document.getElementById('presentText');
+const textInput = document.getElementById('textInput');
+
+// Adjust the size of the input to match the present text
+const textRect = presentText.getBoundingClientRect();
+textInput.style.width = '${textRect.width}px';
+textInput.style.height = '${textRect.height}px';
+textInput.style.top = '${textRect.top- containerRect}px';
+textInput.style.height = '${textRect.height}px';
+    </script>
+</body>
+</html>

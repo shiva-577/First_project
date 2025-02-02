@@ -1,0 +1,126 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header styles */
+#header {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+}
+
+#logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+#logo h2 {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #6c757d;
+}
+
+/* Navigation styles */
+.navbar-collapse ul {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-collapse ul li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+/* Sidebar styles */
+#sidebar {
+    padding-top: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section .title {
+    margin-top: 20px;
+}
+
+.caption {
+    margin-top: 10px;
+    font-style: italic;
+    color: #6c757d;
+}
+
+/* Content styles */
+.lesson {
+    margin-bottom: 40px;
+}
+
+.illustration {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.illustration img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer styles */
+#footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+}
+
+#copyright {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+#language_box {
+    text-align: right;
+}
+
+.lang {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+}
+
+/* Modal styles */
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+/* Responsive ad styles */
+.adslot_side {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .adslot_side {
+        display: block;
+    }
+}

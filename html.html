@@ -1,0 +1,38 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>TEXTONE Typing Speed Test</h1>
+        <div id="text">
+
+   <!-- <text src="C:\Users\varsh\OneDrive\Desktop\pro\text\text1.txt" width="100%" height="100px"></text>-->
+   A "Hello, World!" program is generally a simple computer program which outputs (or displays) to the screen (often the console) a message similar to "Hello, World!" while ignoring any user input. A small piece of code in most general-purpose programming languages, this program is used to illustrate a language's basic syntax. A "Hello, World!" program is often the first written by a student of a new programming language
+</div>
+        <div id="textPrompt">
+
+            <!-- Text prompt will be dynamically loaded here -->
+        </div>
+        <textarea id="userInput" placeholder="Start typing here..."></textarea>
+        <button id="startButton">Start Test</button>
+        <button id="restartButton">Restart Test</button>
+        <button onclick="calculateSpeed()">Submit</button>
+        <p id="result">Your typing speed: <span id="speed">0</span> WPM</p>
+        <audio id="audioPrompt" controls>
+            <source src="C:\Users\varsh\OneDrive\Desktop\pro\audio\audio1.mp3" type="audio/mpeg">
+
+            <!-- Audio prompt will be dynamically loaded here -->
+        </audio>
+        
+    </div>
+    
+      <script src="pro1.js"></script>
+      <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EASY</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        #timer {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TEXTONE Typing Speed Easy Test</h1>
+        <div id="text">
+            <!-- Text content -->
+            "The quick brown fox jumps over the lazy dog." This sentence contains every letter of the alphabet, making it a good exercise for practicing all the keys on the keyboard."Now is the time for all good men to come to the aid of their country." This classic typing exercise is great for practicing rhythm and accuracy."The five boxing wizards jump quickly." This sentence is a fun tongue twister that can help improve your typing speed and dexterity.        <div id="textPrompt">
+            <!-- Text prompt will be dynamically loaded here -->
+        </div>
+        <textarea id="userInput" placeholder="Start typing here..." disabled></textarea>
+        <button id="startButton" onclick="startTest()">Start Test</button>
+        <button id="restartButton" onclick="restartTest()">Restart Test</button>
+        <button onclick="calculateSpeed()">Submit</button>
+        <audio id="audioPrompt" controls>
+            <source src="C:\Users\varsh\OneDrive\Desktop\pro\audio\paraE1.mp3" type="audio/mpeg">
+            <!-- Audio prompt will be dynamically loaded here -->
+        </audio>
+        <p id="result">Your typing speed: <span id="speed">0</span> WPM,<br> Accuracy: <span id="accuracy">0</span>%</p>
+        <div id="timer">01:00</div>
+    </div>
+
+    <script src="test.js" defer></script>
+
+</body>
+</html>

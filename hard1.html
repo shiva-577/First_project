@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARD</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        #timer {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TEXTONE Typing Speed Easy Test</h1>
+        <div id="text">
+            <!-- Text content -->
+            In the realm of quantum physics, the concept of superposition challenges our understanding of reality. According to quantum theory, particles can exist in multiple states simultaneously until observed, leading to seemingly paradoxical outcomes. Schrödinger's famous thought experiment, involving a cat in a sealed box, illustrates this principle. The cat is both alive and dead until the box is opened, at which point its state is determined. Such counterintuitive phenomena highlight the intricacies of the quantum world and the limitations of classical intuition.
+            <!-- Text prompt will be dynamically loaded here -->
+        </div>
+        <textarea id="userInput" placeholder="Start typing here..." disabled></textarea>
+        <button id="startButton" onclick="startTest()">Start Test</button>
+        <button id="restartButton" onclick="restartTest()">Restart Test</button>
+        <button onclick="calculateSpeed()">Submit</button>
+        <audio id="audioPrompt" controls>
+            <source src="C:\Users\varsh\OneDrive\Desktop\pro\audio\paraH1.mp3" type="audio/mpeg">
+            <!-- Audio prompt will be dynamically loaded here -->
+        </audio>
+        <p id="result">Your typing speed: <span id="speed">0</span> WPM,<br> Accuracy: <span id="accuracy">0</span>%</p>
+        <div id="timer">01:00</div>
+    </div>
+
+    <script src="test.js" defer></script>
+
+</body>
+</html>

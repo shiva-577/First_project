@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EASY</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        #timer {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TEXTONE Typing Speed Easy Test</h1>
+        <div id="text">
+            <!-- Text content -->
+            A quick movement of the enemy will jeopardize six gunboats. Typing these sentences can greatly improve your skills. Each letter from A to Z is present, making it a comprehensive exercise. The lazy dog jumped over the quick brown fox, creating a whimsical scene in your mind as you type. Visualization can help improve your memory and make typing more enjoyable. By focusing on accuracy first, you can gradually increase your speed. Regular practice with varied sentences ensures that you become familiar with the layout of your keyboard.
+        </div>
+        <div id="textPrompt">
+            <!-- Text prompt will be dynamically loaded here -->
+        </div>
+        <textarea id="userInput" placeholder="Start typing here..." disabled></textarea>
+        <button id="startButton" onclick="startTest()">Start Test</button>
+        <button id="restartButton" onclick="restartTest()">Restart Test</button>
+        <button onclick="calculateSpeed()">Submit</button>
+        <audio id="audioPrompt" controls>
+            <source src="C:\Users\varsh\OneDrive\Desktop\pro\audio\paraE2.mp3" type="audio/mpeg">
+            <!-- Audio prompt will be dynamically loaded here -->
+        </audio>
+        <p id="result">Your typing speed: <span id="speed">0</span> WPM,<br> Accuracy: <span id="accuracy">0</span>%</p>
+        <div id="timer">01:00</div>
+    </div>
+
+    <script src="test.js" defer></script>
+
+</body>
+</html>

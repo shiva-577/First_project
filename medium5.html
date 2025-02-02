@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDIUM</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        #timer {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TEXTONE Typing Speed Easy Test</h1>
+        <div id="text">
+            <!-- Text content -->
+            In the realm of literature, stories have the power to transport us to different worlds, evoke deep emotions, and spark our imagination. From the epic tales of heroism and adventure to the intimate portraits of everyday life, books offer a window into the human experience. Through the written word, we can explore the depths of the human psyche, confront our fears and desires, and gain insight into the complexities of life. Literature also serves as a reflection of society, capturing the zeitgeist of different eras and providing a commentary on the social, political, and cultural issues of the time. Whether it's the timeless classics or contemporary works, books have the ability to inspire, educate, and entertain, leaving a lasting impact on readers and shaping the way we see the world.
+            <!-- Text prompt will be dynamically loaded here -->
+        </div>
+        <textarea id="userInput" placeholder="Start typing here..." disabled></textarea>
+        <button id="startButton" onclick="startTest()">Start Test</button>
+        <button id="restartButton" onclick="restartTest()">Restart Test</button>
+        <button onclick="calculateSpeed()">Submit</button>
+        <audio id="audioPrompt" controls>
+            <source src="C:\Users\varsh\OneDrive\Desktop\pro\audio\paraM5.mp3" type="audio/mpeg">
+            <!-- Audio prompt will be dynamically loaded here -->
+        </audio>
+        <p id="result">Your typing speed: <span id="speed">0</span> WPM,<br> Accuracy: <span id="accuracy">0</span>%</p>
+        <div id="timer">01:00</div>
+    </div>
+
+    <script src="test.js" defer></script>
+
+</body>
+</html>

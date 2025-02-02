@@ -1,0 +1,14 @@
+﻿use mydata;
+select * from audio_data;
+truncate table audio_data where id<5;
+select * from audio_data;
+ALTER TABLE audio_data AUTO_INCREMENT = 1;
+select * from audio_data;
+UPDATE audio_data SET id = 1;
+select * from audio_data;
+insert into audio_data values(2,'C:\Users\varsh\OneDrive\Desktop\pro\text\text2.txt','C:\Users\varsh\OneDrive\Desktop\pro\audio\audio2.mp3');
+select * from audio_data;
+UPDATE audio_data
+SET text = 'C:\Users\varsh\OneDrive\Desktop\pro\text\text1.txt', audio_path = 'C:\Users\varsh\OneDrive\Desktop\pro\audio\audio1.mp3'
+WHERE id = 1;
+select * from audio_data;

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDIUM</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        #timer {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TEXTONE Typing Speed Easy Test</h1>
+        <div id="text">
+            <!-- Text content -->
+            In the midst of a bustling city, there was a small park that offered a serene escape from the daily grind. The park was a green oasis, filled with towering trees, vibrant flowers, and winding paths. On any given day, you could find people strolling leisurely, children playing, and dogs happily chasing after balls. The gentle chirping of birds and the rustling of leaves provided a soothing soundtrack, while the occasional laughter of a child or the distant hum of a lawnmower added to the atmosphere. For many, this park was not just a piece of nature, but a place to reconnect with themselves and take a breath of fresh air in the otherwise fast-paced urban environment.
+
+            <!-- Text prompt will be dynamically loaded here -->
+        </div>
+        <textarea id="userInput" placeholder="Start typing here..." disabled></textarea>
+        <button id="startButton" onclick="startTest()">Start Test</button>
+        <button id="restartButton" onclick="restartTest()">Restart Test</button>
+        <button onclick="calculateSpeed()">Submit</button>
+        <audio id="audioPrompt" controls>
+            <source src="C:\Users\varsh\OneDrive\Desktop\pro\audio\paraM1.mp3" type="audio/mpeg">
+            <!-- Audio prompt will be dynamically loaded here -->
+        </audio>
+        <p id="result">Your typing speed: <span id="speed">0</span> WPM,<br> Accuracy: <span id="accuracy">0</span>%</p>
+        <div id="timer">01:00</div>
+    </div>
+
+    <script src="test.js" defer></script>
+
+</body>
+</html>

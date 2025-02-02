@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEXTTONE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@400;500;600;700;800;900&display=swap');
+        
+        * { padding: 0; margin: 0; box-sizing: border-box; }
+
+        body { font-family: 'Recursive', sans-serif; overflow: hidden; background-color: #131414; }
+
+        .container { max-height: 100vh; width: 100%; background-color: #131414; background-image: linear-gradient(135deg, #131414 0%, #000000 100%); overflow: hidden; }
+
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 10; height: 5rem; background-color: #000; }
+
+        .menu { max-width: 100rem; width: 100%; height: 100%; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; color: #fff; }
+
+        .logo { font-size: 1.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+
+        .logo span { color: #e20f2f; }
+
+        .hamburger-menu { height: 4rem; width: 3rem; cursor: pointer; display: flex; align-items: center; justify-content: flex-end; }
+
+        .bar { width: 1.9rem; height: 1.5px; border-radius: 2px; background-color: #eee; transition: 0.5s; position: relative; }
+
+        .bar::before, .bar::after { content: ""; position: absolute; width: inherit; height: inherit; background-color: #eee; transition: 0.5s; }
+
+        .bar::before { transform: translateY(-9px); }
+
+        .bar::after { transform: translateY(9px); }
+
+        .main-container { overflow: hidden; }
+
+        .main { position: relative; width: 100%; left: 0; z-index: 5; overflow: hidden; transform-origin: left; transform-style: preserve-3d; transition: 0.5s; }
+
+        header { min-height: 100vh; width: 100%; 
+            background: url("  https://w0.peakpx.com/wallpaper/582/836/HD-wallpaper-darkbluekeyboard-computer-dark-darkishblue-gamer-keyboard-life-neon-phone-purple.jpg") no-repeat top center / cover; position: relative; }
+
+        .overlay { position: absolute; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.712); display: flex; justify-content: center; align-items: center; flex-direction: column; color: #fff; }
+
+        .inner { max-width: 35rem; text-align: center; color: #fff; padding: 0 2rem; }
+
+        .title { font-size: 3rem;}
+
+        .description { margin: 10px 0; text-align: center; width: 50%; font-size: 1.5rem; }
+
+        .btn { margin-top: 1rem; padding: 0.6rem 1.8rem; background-color: #e20f2f; border: none; border-radius: 25px; color: #fff; text-transform: uppercase; cursor: pointer; text-decoration: none; }
+
+        .container.active .bar { transform: rotate(360deg); background-color: transparent; }
+
+        .container.active .bar::before { transform: translateY(0) rotate(45deg); }
+
+        .container.active .bar::after { transform: translateY(0) rotate(-45deg); }
+
+        .container.active .main { animation: main-animation 0.5s ease; cursor: pointer; transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(310px) scale(0.5); }
+
+        @keyframes main-animation { from { transform: translate(0); } to { transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(310px) scale(0.5); } }
+
+        .links { position: absolute; width: 30%; right: 0; top: 0; height: 100vh; z-index: 2; overflow: hidden; display: flex; justify-content: flex-start; align-items: center; margin-left: 10px; }
+
+        ul { list-style: none; }
+
+        ul li.active a { color: #e20f2f; }
+
+        .links a { text-decoration: none; color: #eee; padding: 0.7rem 0; display: inline-block; font-size: 1.8rem; font-weight: 300; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; opacity: 0; transform: translateY(10px); animation: hide 0.5s forwards ease; }
+
+        .links a:hover { color: #e20f2f; }
+
+        .container.active .links a { animation: appear 0.5s forwards ease var(--i); }
+
+        @keyframes appear { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0px); } }
+
+        @keyframes hide { from { opacity: 1; transform: translateY(0px); } to { opacity: 0; transform: translateY(10px); } }
+
+        .shadow { position: absolute; width: 100%; height: 100vh; top: 0; left: 0; transform-style: preserve-3d; transform-origin: left; transition: 0.5s; background-color: #fff; }
+
+        .shadow.one { z-index: -1; opacity: 0.15; }
+
+        .shadow.two { z-index: -2; opacity: 0.1; }
+
+        .container.active .shadow.one { animation: shadow-one 0.6s ease-out; transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(215px) scale(0.5); }
+
+        @keyframes shadow-one { 0% { transform: translate(0); } 5% { transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(310px) scale(0.5); } 100% { transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(215px) scale(0.5); } }
+
+        .container.active .shadow.two { animation: shadow-two 0.6s ease-out; transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(120px) scale(0.5); }
+
+        @keyframes shadow-two { 0% { transform: translate(0); } 20% { transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(310px) scale(0.5); } 100% { transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(120px) scale(0.5); } }
+
+        .container.active .main:hover + .shadow.one { transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(230px) scale(0.5); }
+
+        .container.active .main:hover { transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(340px) scale(0.5); }
+        .main-container
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 0;
+}
+
+.main-container .box
+{
+  position: relative;
+  width: 720px;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 30px;
+  transition: 0.5s;
+}
+
+.main-container .box::before
+{
+  content:' ';
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 50%;
+  height: 100%;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+}
+
+.main-container .box::after
+{
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 50;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+  filter: blur(30px);
+}
+
+.main-container .box:hover:before,
+.main-container .box:hover:after
+{
+  transform: skewX(0deg);
+  left: 20px;
+  width: calc(100% - 90px);
+  
+}
+
+.main-container .box:nth-child(1):before,
+.main-container .box:nth-child(1):after
+{
+  background: linear-gradient(315deg, #c2c8f1, #020d28)
+}
+
+.main-container .box:nth-child(2):before,
+.main-container .box:nth-child(2):after
+{
+  background: linear-gradient(315deg, #03a9f4, #020d28)
+}
+
+.main-container .box:nth-child(3):before,
+.main-container .box:nth-child(3):after
+{
+  background: linear-gradient(315deg, #4dff03, #00d0ff)
+}
+
+.main-container .box span
+{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.main-container .box span::before
+{
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: 0.1s;  
+  animation: animate 2s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08)
+}
+
+.main-container .box:hover span::before
+{
+  top: -50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+.main-container .box span::after
+{
+  content:'';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: 0.5s;
+  animation: animate 2s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  animation-delay: -1s;
+}
+
+.main-container .box:hover span:after
+{
+  bottom: -50px;
+  right: 50px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+@keyframes animate
+{
+  0%, 100%
+  {
+    transform: translateY(10px);
+  }
+  
+  50%
+  {
+    transform: translate(-10px);
+  }
+}
+
+.main-container .box .content
+{
+  position: relative;
+  left: 0;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1;
+  transform: 0.5s;
+  color: #fff;
+}
+
+.contamain-container .box:hover .content
+{
+  left: -25px;
+  padding: 60px 40px;
+}
+
+.main-container .box .content h2
+{
+  font-size: 2em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.main-container .box .content p
+{
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  line-height: 1.4em;
+}
+
+.main-container .box .content a
+{
+  display: inline-block;
+  font-size: 1.1em;
+  width: 200px;
+  color: #111;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.main-container .box .content a:hover
+{
+  background: #8dc3e2;
+  border: 1px solid rgba(255, 0, 88, 0.4);
+  box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="menu">
+                <h3 class="logo">TEXTTONE</span></h3>
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="main">
+                <header>
+                    <div class="overlay">
+                        <div class="box">
+                            <span></span>
+                            <div class="content">
+                                <div class="section">
+                                    <h1>EASY</h1>
+                                    <div class="lessons">
+                                        <a href="easy1.html">easy1</a><br>
+                                        <a href="easy2.html">easy2</a><br>
+                                        <a href="easy3.html">easy3 </a><br>
+                                        <a href="easy4.html"> easy4</a><br>
+                                        <a href="easy5.html">easy5</a><br>
+                                        
+                                    
+                                </div>
+                                </div>
+                                
+                                
+                </div>
+                </div>
+                
+                    </div>
+                </header>
+            </div>
+            <div class="shadow one"></div>
+            <div class="shadow two"></div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,108 @@
+body {
+  background-image: url("https://t4.ftcdn.net/jpg/02/94/11/13/360_F_294111387_577OL7DUxO84ptyyvMCo2z6Ul9WVuiyp.jpg");
+  background-size: cover; /* Ensure the background image covers the entire body */
+  background-repeat: no-repeat;  
+  font-family: Arial, sans-serif;  
+  color: #ffffff;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  header {
+      background: rgb(1, 1, 2);
+      padding: 20px;
+      text-align: center;
+      height: 30px;
+  }
+  header span {
+      font-size: 32px;
+      font-weight: bold;
+      color: #eef1f4;
+      float: left;
+  }
+  
+  .container {
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 800px;
+      background-color: #235683;  
+      border-radius: 25px;
+  }
+  .container2 {
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 800px;
+      background-color: #235683;  
+      border-radius: 25px;
+  }
+  .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #143d51;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 20px;
+  }
+  .button:hover {
+      background-color: #e65c00;
+  }
+  .section {
+      margin: 20px 0;
+  }
+  .section h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+  }
+  .section a{
+      text-decoration: none;
+font-size: 18px;
+text-align: center;
+display: block;
+border-radius: 50px;
+color: #f2f4f6;
+font-family: 'Times New Roman', Times, serif;
+padding: 3px; /* Add padding for a more substantial button look */
+margin: 10px 0; /* Add margin to separate links */
+transition: background 0.3s, color 0.3s, transform 0.3s; /* Smooth transitions */
+  }
+  .section a:hover {
+font-size: 20px;
+color: #0B0601;
+background: linear-gradient(to top left, #82b8ca, #918db9);
+transform: scale(1.05); /* Slightly enlarge the link on hover */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect on hover */
+}
+  .section p {
+      margin-bottom: 10px;
+      font-size: 16px;
+  }
+  .lessons, .tests {
+      text-align: left;
+      padding: 0 10%;
+  }
+  .lessons h3, .tests h3 {
+      font-size: 20px;
+      margin: 15px 0;
+  }
+  .container1{
+display: flex;
+justify-content: space-between;
+align-items: center;
+float: right;
+}
+nav ul{
+list-style-type: none;
+margin: 0;
+padding: 0;
+display: flex;
+}
+nav ul li{
+margin-left: 1rem;
+}
+nav a{
+color: azure;
+text-decoration: none;
+}
+nav a:hover{
+color: #358abc;}

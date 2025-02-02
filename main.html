@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEXTTONE</title>
+    <style>
+        body {
+            background-image: url("https://t4.ftcdn.net/jpg/02/94/11/13/360_F_294111387_577OL7DUxO84ptyyvMCo2z6Ul9WVuiyp.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header span {
+            font-size: 32px;
+            font-weight: bold;
+            color: #eef1f4;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 1rem;
+        }
+        nav a {
+            color: azure;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #358abc;
+        }
+        .container {
+            margin: 120px auto 20px;
+            padding: 20px;
+            max-width: 800px;
+            background-color: rgba(35, 86, 131, 0.8);
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            margin: 10px 0;
+            background-color: #143d51;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 20px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background-color: #e65c00;
+            transform: scale(1.05);
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .section h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+            color: darkgoldenrod;
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .lessons, .tests {
+            text-align: left;
+            padding: 0 10%;
+        }
+        .lessons a, .tests a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            color: #f2f4f6;
+            font-size: 18px;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s, transform 0.3s;
+        }
+        .lessons a:hover, .tests a:hover {
+            background: linear-gradient(to top left, #82b8ca, #918db9);
+            color: #0B0601;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            margin-top: auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+            color: #eef1f4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span>TEXTTONE</span>
+        
+    </header>
+    <div class="container">
+        <h1>TEXTTONE: Typing speed challenge with spoken and visual text</h1>
+        <div class="section">
+            <h1>Typing Lessons</h1>
+            <a href="#" class="button" onclick="showAlert('Learn to Type')">Learn to Type</a>
+            <div class="lessons">
+                <a href="homerow.html">Home Row</a>
+                <a href="toprow.html">Top Row</a>
+                <a href="bottomrow.html">Bottom Row</a>
+                <a href="capitalletters.html">Capital Letters</a>
+                <a href="punctuations.html">Punctuations</a>
+                <a href="numbers.html">Numbers</a>
+                <a href="symbols.html">Symbols</a>
+            </div>
+        </div>
+        <div class="section">
+            <h1>Typing Speed Tests</h1>
+            <a href="#" class="button" onclick="showAlert('Typing Speed Tests')">Typing Speed Tests</a>
+            <p>Evaluate your skills and measure your progress by taking a typing test.</p>
+            <div class="tests">
+                <a href="easy.html">Easy</a>
+                <a href="medium.html">Medium</a>
+                <a href="hard.html">Hard</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 TEXTTONE. All rights reserved.</p>
+    </footer>
+    <script>
+        function showAlert(message) {
+            alert(message + ' feature coming soon!');
+        }
+    </script>
+</body>
+</html>

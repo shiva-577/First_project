@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test with Timer</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+      #timer {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TEXTONE Typing Speed Test</h1>
+        <div id="text">
+            <!-- Text content -->
+            A "Hello, World!" program is generally a simple computer program which outputs (or displays) to the screen (often the console) a message similar to "Hello, World!" while ignoring any user input. A small piece of code in most general-purpose programming languages, this program is used to illustrate a language's basic syntax. A "Hello, World!" program is often the first written by a student of a new programming language
+        </div>
+        <div id="textPrompt">
+            <!-- Text prompt will be dynamically loaded here -->
+        </div>
+        <textarea id="userInput" placeholder="Start typing here..." disabled></textarea>
+        <button id="startButton" onclick="startTest()">Start Test</button>
+        <button id="restartButton" onclick="restartTest()">Restart Test</button>
+        <button onclick="calculateSpeed()">Submit</button>
+        <audio id="audioPrompt" controls>
+            <source src="C:\Users\varsh\OneDrive\Desktop\pro\audio\audio1.mp3" type="audio/mpeg">
+            <!-- Audio prompt will be dynamically loaded here -->
+        </audio>
+        <p id="result">Your typing speed: <span id="speed">0</span> WPM<br> Accuracy: <span id="accuracy">0</span>%</p>
+
+        <div id="timer">01:00</div>
+    </div>
+
+    <script>
+        let timerInterval;
+        let totalSeconds = 0;
+        let timeLimit = 60;
+
+        function startTimer() {
+            if (!timerInterval) {
+                timerInterval = setInterval(updateTimer, 1000);
+            }
+        }
+
+        function updateTimer() {
+            totalSeconds++;
+            const secondsLeft = timeLimit - totalSeconds;
+            const minutes = Math.floor(secondsLeft / 60);
+            const seconds = secondsLeft % 60;
+            document.getElementById("timer").innerText = formatTime(minutes) + ":" + formatTime(seconds);
+
+            if (secondsLeft <= 0) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                calculateSpeed();
+                alert("Time's up! Test completed.");
+            }
+        }
+
+        function formatTime(time) {
+            return time < 10 ? "0" + time : time;
+        }
+
+        function startTest() {
+            // Start the typing test logic
+            document.getElementById('userInput').disabled = false;
+            document.getElementById('userInput').focus();
+            document.getElementById('userInput').value = '';
+            document.getElementById('speed').innerText = '0';
+            document.getElementById('accuracy').innerText = '0';
+            totalSeconds = 0;
+            startTimer();
+        }
+
+        function restartTest() {
+            // Restart the typing test logic
+            document.getElementById('userInput').value = '';
+            document.getElementById('speed').innerText = '0';
+            document.getElementById('accuracy').innerText = '0';
+            totalSeconds = 0;
+            clearInterval(timerInterval);
+            timerInterval = null;
+            document.getElementById('timer').innerText = '01:00';
+            document.getElementById('userInput').disabled = true;
+        }
+
+        function calculateSpeed() {
+            // Calculate typing speed and accuracy logic
+            const text = document.getElementById('text').innerText.trim();
+            const userInput = document.getElementById('userInput').value.trim();
+
+            const wordsTyped = userInput.split(/\s+/).length;
+            const wpm = Math.round(wordsTyped / (totalSeconds / 60));
+
+            const originalWords = text.split(/\s+/);
+            const typedWords = userInput.split(/\s+/);
+            let correctWords = 0;
+
+            for (let i = 0; i < typedWords.length; i++) {
+                if (typedWords[i] === originalWords[i]) {
+                    correctWords++;
+                }
+            }
+
+            const accuracy = Math.round((correctWords / originalWords.length) * 100);
+
+            document.getElementById('speed').innerText = wpm;
+            document.getElementById('accuracy').innerText = accuracy;
+
+            clearInterval(timerInterval);
+            timerInterval = null;
+            document.getElementById('userInput').disabled = true;
+
+            alert("Test completed. Your typing speed is " + wpm + " WPM with " + accuracy + "% accuracy.");
+        }
+    </script>
+
+</body>
+</html>
